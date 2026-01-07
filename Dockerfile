@@ -9,6 +9,7 @@ FROM eclipse-temurin:8-jdk
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y graphviz
+RUN apt-get install -y fonts-noto fonts-dejavu
 
 # json フォルダと JAR をコピー
 COPY --from=build /app/json ./json
