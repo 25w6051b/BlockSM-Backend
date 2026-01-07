@@ -11,7 +11,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.http.ResponseEntity;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Base64;
+import java.util.Comparator;
 
 @RestController// このクラスがデータを返すと明示する つまり自動でjson形式で返してくれる
 @CrossOrigin(origins = "*")  // すべてのオリジンを許可
@@ -22,7 +24,7 @@ public class HomeController {
         ObjectMapper objectMapper = new ObjectMapper();
         File rootDir = new File(jsonDirPath); // ディレクトリ情報を表すオブジェクトを作成
         File[] taskDirs = rootDir.listFiles(File::isDirectory); // ディレクトリ内にあるファイルを配列として返す
-        Arrays.sort(taskDirs, Comparator.comparing(File::getName)); // フォルダ名順にソート
+        Arrays.sort(taskDirs, Comparator.comparing(File::getName));
         ObjectNode mergedJson = objectMapper.createObjectNode(); // jsonファイルの中身をまとめて送るためのオブジェクト
 
         try {
