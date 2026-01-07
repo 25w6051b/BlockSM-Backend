@@ -1,0 +1,6 @@
+{
+  "behavior" : [ "問題を表示する" ],
+  "event" : [ "問題を一問解く" ],
+  "guard" : [ "count < 3", "count == 3" ],
+  "effect" : [ "count = 0", "count++" ]
+}

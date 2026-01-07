@@ -1,0 +1,16 @@
+pomファイルの作成
+
+必要なライブラリ
+・astah-api
+・astah-pro
+・guava
+・flatlaf
+・flatlaf-intellij
+
+バージョンはpom参照
+
+guava,flatlafは中央リポジトリからダウンロード可能なため，pomにそのまま書き込めばok
+ただし，astah-apiとastah-proは中央リポジトリにはないため，mavenのローカルリポジトリにダウンロードするかパスを指定して
+<scope>system</scope>
+<systemPath>${astahPath}/astah-api.jar</systemPath>
+行う．
