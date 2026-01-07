@@ -22,6 +22,7 @@ public class HomeController {
         ObjectMapper objectMapper = new ObjectMapper();
         File rootDir = new File(jsonDirPath); // ディレクトリ情報を表すオブジェクトを作成
         File[] taskDirs = rootDir.listFiles(File::isDirectory); // ディレクトリ内にあるファイルを配列として返す
+        Arrays.sort(taskDirs, Comparator.comparing(File::getName)); // フォルダ名順にソート
         ObjectNode mergedJson = objectMapper.createObjectNode(); // jsonファイルの中身をまとめて送るためのオブジェクト
 
         try {
